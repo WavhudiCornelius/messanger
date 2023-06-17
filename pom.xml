@@ -5,13 +5,14 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.6.0</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<version>2.7.12</version>
+		<relativePath/>
 	</parent>
-	<groupId>com.messenger</groupId>
-	<artifactId>messengerApp</artifactId>
+
+	<groupId>com.example</groupId>
+	<artifactId>messager</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>messengerApp</name>
+	<name>messager</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>1.8</java.version>
@@ -35,6 +36,14 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
 		</dependency>
 	</dependencies>
 
