@@ -1,6 +1,7 @@
 package com.example.messager.user.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -29,21 +30,17 @@ public class UserService implements UserDetailsService {
         return userRepository.findAll();
     }
     
-    public User findByEmail(String email) {
+    public Optional<User> findByEmail(String email) {
         return userRepository.findByEmail(email);
     }
     
     public boolean existsByEmail(String email) {
-        User user = findByEmail(email);
+        User user = findByEmail(email).get();
         return user != null;
     }
     
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        User user = userRepository.findByEmail(email);
-        if (user == null) {
-            throw new UsernameNotFoundException("User not Found");
-        }
-        return user;
+        return userRepository.findByEmail(email).orElseThrow(() -> new UsernameNotFoundException("User not Found"));
     }
 }
